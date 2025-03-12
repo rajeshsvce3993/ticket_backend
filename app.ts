@@ -24,7 +24,12 @@ const app = express();
 app.use(express.json());
 
 //cors
-app.use(cors());
+app.use(cors({
+  origin: '*', // Allow all origins
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  preflightContinue: false,
+  optionsSuccessStatus: 204
+}));
 
 // Handle preflight requests
 app.options('*', cors());

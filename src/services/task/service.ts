@@ -78,9 +78,9 @@ class TaskService {
     return result;
    }
 
-   public async getTickets(status:string,mobile:string) {
+   public async getTickets(status:string,userId:string) {
     return await Task.aggregate([
-     {$match:{status:status,mobile:mobile}},
+     {$match:{status:status,user:userId}},
      {
        $addFields: {
          userObjectId: { $toObjectId: "$user" },

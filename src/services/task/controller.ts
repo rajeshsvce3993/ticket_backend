@@ -26,7 +26,7 @@ export const createTicket = async (req: AuthRequest, res: Response) => {
 export const GetAllTickets = async (req: AuthRequest, res: Response) => {
   try {
     const status = String(req.query?.status || "");
-    const mobile = req.user.mobile
+    const userId = req.user.userId
     const role = req.user.role
     let tickets =[];
 
@@ -34,7 +34,7 @@ export const GetAllTickets = async (req: AuthRequest, res: Response) => {
       tickets = await taskService.getAllTickets(status)
     }
     else{
-      tickets = await taskService.getTickets(status,mobile)
+      tickets = await taskService.getTickets(status,userId)
     }
 
      res.status(HttpStatus.OK).send({message:TaskConst.SUCCESS,tickets});

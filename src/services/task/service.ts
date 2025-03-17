@@ -66,7 +66,7 @@ class TaskService {
         "taskList":"$workList",
         "images":"$images",
         "location":"$location",
-        "bankAdmin":"$bankDetails.adminDetails.name",
+        "bankAdmin":"$bankAdmin",
         "date": {
           "$dateToString": {
             "format": "%d-%m-%Y",
